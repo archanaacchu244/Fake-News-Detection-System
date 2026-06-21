@@ -1,0 +1,16 @@
+# Virtual environments
+.venv/
+.venv311/
+.venv313/
+
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+
+# VS Code workspace settings
+.vscode/
+
+# Downloaded datasets
+data/*.csv
+data/*.zip
+data/*.joblib
