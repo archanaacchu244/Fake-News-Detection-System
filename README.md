@@ -1,31 +1,124 @@
-# TruthLens — Fake News Detector
+# 🕵️ TruthLens — Fake News Detection System
 
-A real-time fake news detection web application built with Python, Flask, and scikit-learn.
+A real-time fake news detection web application built with Flask, Machine Learning, and Natural Language Processing (NLP). TruthLens analyzes news articles and provides probability-based predictions, credibility indicators, and source verification insights to help users evaluate online information.
 
-## Features
-- Paste any news text or enter a URL to fetch articles automatically
-- Real-time AI analysis using TF-IDF + Logistic Regression
-- Conspiracy / clickbait signal detection (30+ keywords)
-- Confidence scores, probability bars, and detailed analysis indicators
-- Text statistics: word count, caps ratio, exclamation marks, numeric density
-- Analysis history panel (last 5 checks)
-- Beautiful dark-themed web UI
+---
 
-## Tech Stack
-| Layer | Technology |
-|-------|-----------|
-| Backend | Python 3, Flask |
-| ML Model | scikit-learn — TF-IDF Vectorizer + Logistic Regression |
-| Feature Engineering | Custom text statistics (caps ratio, exclamations, etc.) |
-| Article Fetching | requests + BeautifulSoup4 |
-| Frontend | HTML5, CSS3, Vanilla JavaScript |
-| Font | Space Grotesk + Syne + JetBrains Mono |
+## 🚀 Features
 
-## How to Run
+* Analyze news articles by pasting text directly
+* Fetch and analyze articles from URLs
+* Real-time Fake vs Real probability scoring
+* TF-IDF + Logistic Regression classification model
+* Source credibility verification
+* Clickbait and conspiracy signal detection
+* Confidence scoring and detailed indicators
+* Text statistics and content analysis
+* Analysis history tracking
+* Responsive dark-themed user interface
 
-From the project root directory:
+---
 
-```powershell
+## 🛠️ Tech Stack
+
+| Layer            | Technology              |
+| ---------------- | ----------------------- |
+| Backend          | Python, Flask           |
+| Machine Learning | Scikit-learn            |
+| NLP              | TF-IDF Vectorization    |
+| Model            | Logistic Regression     |
+| Data Processing  | NumPy, SciPy            |
+| Web Scraping     | Requests, BeautifulSoup |
+| Frontend         | HTML, CSS, JavaScript   |
+
+---
+
+## 🧠 Machine Learning Pipeline
+
+### Text Vectorization
+
+News articles are transformed into numerical representations using:
+
+* TF-IDF Vectorizer
+* Unigrams and Bigrams
+* Stop-word removal
+* Feature normalization
+
+### Feature Engineering
+
+The model combines TF-IDF features with custom content-based features such as:
+
+* Word count
+* Capital letter ratio
+* Average sentence length
+* Average word length
+* Number count
+* URL count
+* Quote count
+* Clickbait indicators
+* Conspiracy-related keywords
+* Credibility-related terms
+* Expert references
+* Source citations
+* Time references
+
+### Classification
+
+A Logistic Regression classifier is trained on labeled news data and generates probability scores for:
+
+* Fake News
+* Real News
+
+Additional rule-based verification improves classification reliability by analyzing:
+
+* Trusted news sources
+* Clickbait patterns
+* Sensational language
+* Unsupported policy claims
+* Conspiracy-related content
+
+---
+
+## 📊 Key Capabilities
+
+### Fake News Detection
+
+Identifies potentially misleading, sensationalized, or fabricated news content.
+
+### Source Verification
+
+Checks article URLs against trusted news and government domains.
+
+### Content Analysis
+
+Highlights suspicious signals including:
+
+* Clickbait language
+* Conspiracy keywords
+* Unsupported claims
+* Low-credibility sources
+
+### Confidence Scoring
+
+Provides probability-based confidence levels for each prediction.
+
+---
+
+## 📂 Project Structure
+
+```text
+Fake-News-Detection-System/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+└── templates/
+    └── index.html
+```
+
+---
+
 # 1. Create the virtual environment (use Python 3.11)
 py -3.11 -m venv .venv311
 
@@ -43,37 +136,33 @@ python app.py
 
 # 6. Open in browser
 # http://localhost:5050
-```
+---
 
-If you prefer the shell script and have Bash available:
+## 📁 Dataset
 
-```bash
-bash run.sh
-```
+The application supports training using Fake News and True News datasets.
 
-## How It Works
+Dataset files are not included in this repository due to file size limitations.
 
-1. **TF-IDF Vectorization** — Converts news text into numerical features using Term Frequency-Inverse Document Frequency with bigrams (1-2 word phrases)
-2. **Feature Engineering** — Extracts 10 statistical features: word count, capitals ratio, exclamation count, question marks, sensational keyword count, all-caps word count, average word length, conspiracy keyword count, miracle/cure keyword count, and number count
-3. **Logistic Regression Classifier** — Trained on 120 labelled examples (60 fake + 60 real) to produce probability scores
-4. **Signal Boosting** — Rule-based adjustments boost/reduce fake probability based on presence of known conspiracy theory keywords, clickbait language, and credibility markers
-5. **Hard Threshold Rule** — If 3+ conspiracy signals are detected, the minimum fake probability is set to 72%
+---
 
-## Project Structure
-```
-fakenews/
-├── app.py              — Flask server + ML model + analysis logic
-├── requirements.txt    — Python dependencies
-├── run.sh              — Setup and launch script
-├── README.md           — This file
-└── templates/
-    └── index.html      — Complete web frontend (single file)
-```
+## 📌 Future Improvements
 
-## Accuracy
-- Tested on 8 diverse fake/real news examples
-- Accuracy: ~88% (7/8 correct classifications)
-- Strong detection of conspiracy theories, health misinformation, and clickbait
+* Deep Learning models (LSTM/BERT)
+* Real-time fact-checking APIs
+* News source reputation scoring
+* Multilingual fake news detection
+* User authentication and saved reports
+* Explainable AI visualizations
 
-## Note
-This tool is for educational purposes. Always verify news from multiple credible sources.
+---
+
+## ⚠️ Disclaimer
+
+This project is intended for educational and research purposes. Predictions generated by the model should not be considered definitive fact-checking results. Always verify important information through multiple credible sources.
+
+---
+
+## 👤 Author
+
+Archana K
