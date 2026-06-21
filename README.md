@@ -118,6 +118,10 @@ Fake-News-Detection-System/
 ```
 
 ---
+## How to Run
+
+# From the project root directory:
+-- powershell
 
 # 1. Create the virtual environment (use Python 3.11)
 py -3.11 -m venv .venv311
